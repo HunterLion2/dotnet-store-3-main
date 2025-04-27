@@ -1,5 +1,6 @@
 namespace dotnet_store.Models;
 using System.ComponentModel.DataAnnotations;
+
 public class KategoriEditModel
 {
     public int Id { get; set; }

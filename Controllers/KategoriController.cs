@@ -59,7 +59,7 @@ public class KategoriController : Controller
     public ActionResult Edit(int id, KategoriEditModel model)
     {
         if(id != model.Id) {
-            return NotFound();
+             return RedirectToAction("Index");
         }
 
         var entity = _context.Kategoriler.FirstOrDefault(i => i.Id == model.Id);
