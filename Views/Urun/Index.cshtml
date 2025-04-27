@@ -1,0 +1,74 @@
+@model List<UrunGetModel>
+@{
+    Layout = "_AdminLayout";
+}
+<div class="row">
+    <div class="col">
+        <div class="card shadow">
+            <div class="card-header py-1 d-flex justify-content-between align-items-center">
+                <h5 class="card-title">Ürünler</h5>
+                <a asp-controller="Urun" asp-action="Create" class="btn btn-sm btn-primary">
+                    <i class="fa-solid fa-plus"></i>
+                </a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped mb-0">
+                        <thead class="table-secondary">
+                            <tr>
+                                <th style="width: 20px;">Id</th>
+                                <th style="width: 80px;">Resim</th>
+                                <th>Ürün Adı</th>
+                                <th>Fiyat</th>
+                                <th>Aktif</th>
+                                <th>Anasayfa</th>
+                                <th>Kategori</th>
+                                <th style="width: 50px;"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var urun in Model)
+                            {
+                                <tr>
+                                    <td>@urun.Id</td>
+                                    <td>
+                                        <img src="img/@urun.Resim" class="img-fluid" alt="">
+                                    </td>
+                                    <td>@urun.UrunAdi</td>
+                                    <td>@urun.Fiyat ₺</td>
+                                    <td>
+                                        @if (urun.Aktif)
+                                        {
+                                            <i class="fa-solid fa-circle-check text-success"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fa-solid fa-circle-xmark text-danger"></i>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (urun.Anasayfa)
+                                        {
+                                            <i class="fa-solid fa-circle-check text-success"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fa-solid fa-circle-xmark text-danger"></i>
+                                        }
+                                    </td>
+                                    <td>@urun.KategoriAdi</td>
+                                    <td>
+                                        <a href="kategori-ekle.html" class="btn btn-primary btn-sm">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
