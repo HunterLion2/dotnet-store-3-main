@@ -93,7 +93,7 @@ public class UrunController : Controller
             Aktif = model.Aktif,
             Anasayfa = model.Anasayfa,
             KategoriId = model.KategoriId,
-            Resim = "1.jpeg"
+            Resim = "1.jpg"
         };
 
         _context.Urunler.Add(entity);
@@ -101,4 +101,51 @@ public class UrunController : Controller
 
         return RedirectToAction("Index");
     }
+
+    public ActionResult Edit(int id) {
+
+        var entity = _context.Urunler.Select(i => new UrunEditModel{
+            UrunAdi = i.UrunAdi,
+            Aciklama = i.Aciklama,
+            Fiyat = i.Fiyat,
+            Aktif = i.Aktif,
+            Resim = i.Resim,
+            Anasayfa = i.Anasayfa,
+            Id = i.Id,
+            KategoriId = i.KategoriId
+
+        }).FirstOrDefault(i => i.Id == id);
+
+        ViewBag.Kategoriler = new SelectList( _context.Kategoriler.ToList(), "Id", "KategoriAdi");
+        return View(entity);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(int id, UrunEditModel model) {
+        if(id != model.Id) {
+            return RedirectToAction("Index");
+        }
+
+        var entity = _context.Urunler.FirstOrDefault(i => i.Id == model.Id);
+
+        if(entity != null) {
+            entity.UrunAdi = model.UrunAdi;
+            entity.Aciklama = model.Aciklama;
+            entity.Aktif = model.Aktif;
+            entity.Anasayfa = model.Anasayfa;
+            entity.Fiyat = model.Fiyat;
+            entity.KategoriId = model.KategoriId;
+            entity.Resim = model.Resim;
+
+            _context.SaveChanges();
+
+            TempData["Message"] = $"{entity.UrunAdi} Kategorisi Güncellendi";
+
+            return RedirectToAction("Index");
+        }
+
+        return View(model);
+    }
+
+
 }
