@@ -1,6 +1,6 @@
 namespace dotnet_store.Models;
 
-public class Slider
+public class SliderGetModel
 {
     public int Id { get; set; }
     public string? Baslik { get; set; }

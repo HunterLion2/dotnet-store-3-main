@@ -7,8 +7,12 @@
             int x = 0;
             foreach (var item in Model)
             {
-                <button type="button" data-bs-target="#slider" data-bs-slide-to="@x" class="@(x == 0 ? "active" : "")"></button>
-                x = x + 1;
+                if (item.Aktif == true)
+                {
+                    <button type="button" data-bs-target="#slider" data-bs-slide-to="@x" class="@(x == 0 ? "active" : "")"></button>
+                    x = x + 1;
+                }
+
             }
         }
     </div>
@@ -17,10 +21,14 @@
             int y = 0;
             foreach (var item in Model)
             {
-                <div class="carousel-item @(y == 0 ? "active" : "")">
-                    <img src="/img/@item.Resim" alt="@item.Baslik" class="d-block w-100">
-                </div>
-                y += 1;
+                if (item.Aktif == true)
+                {
+                    <div class="carousel-item @(y == 0 ? "active" : "")">
+                        <img src="/img/@item.Resim" alt="@item.Baslik" class="d-block w-100">
+                    </div>
+                    y += 1;
+                }
+
             }
         }
     </div>

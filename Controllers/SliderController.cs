@@ -19,6 +19,27 @@ public class SliderController: Controller {
         return View(slider);
     }
 
+    public ActionResult Create() {
+        return View();
+    }
+
+    [HttpPost]
+    public ActionResult Create(SliderGetModel model) {
+
+        var entity = new Slider {
+            Baslik = model.Baslik,
+            Aciklama = model.Aciklama,
+            Resim = "slider-1.jpeg",
+            Index = model.Index,
+            Aktif = model.Aktif
+        };
+
+        _context.Sliderlar.Add(entity);
+        _context.SaveChanges();
+
+        return RedirectToAction("Index");
+    }
+
 
 
 }
