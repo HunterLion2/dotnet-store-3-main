@@ -7,7 +7,9 @@ public class UrunEditModel {
     
     public double Fiyat { get; set; }
 
-    public string? Resim { get; set; }
+    public string? ResimAdi { get; set; }
+
+    public IFormFile? ResimDosyası { get; set; }
 
     public string? Aciklama { get; set; }
 
