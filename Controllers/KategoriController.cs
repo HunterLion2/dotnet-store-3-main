@@ -33,21 +33,28 @@ public class KategoriController : Controller
     [HttpPost]
     public ActionResult Create(KategoriCreateModel model)
     {
-        var entity = new Kategori
+        // IsValid değeri model içerisine girdiğimiz değerlerin doğruluğuna bakar doğru ise true değeri döndürür ve if içerisindeki değerleri çalıştırır.
+        if (ModelState.IsValid)
         {
-            KategoriAdi = model.KategoriAdi,
-            Url = model.Url,
-        };
+            var entity = new Kategori
+            {
+                KategoriAdi = model.KategoriAdi,
+                Url = model.Url,
+            };
 
-        _context.Kategoriler.Add(entity);
-        _context.SaveChanges();
+            _context.Kategoriler.Add(entity);
+            _context.SaveChanges();
 
-        return RedirectToAction("Index");
+            return RedirectToAction("Index");
+        }
+        return View(model);
     }
 
     // Aslında burada Kategoriler içerisinden aldığım bilgiyi Select seçeneği ile KategoriEditModel'e gönderip eşitletip sonrasında kullanıyorum bu sayede daha düzenli bir yapım oluyor.
-    public ActionResult Edit(int id) {
-        var entity = _context.Kategoriler.Select(i => new KategoriEditModel{
+    public ActionResult Edit(int id)
+    {
+        var entity = _context.Kategoriler.Select(i => new KategoriEditModel
+        {
             Id = i.Id,
             KategoriAdi = i.KategoriAdi,
             Url = i.Url
@@ -58,25 +65,30 @@ public class KategoriController : Controller
     [HttpPost]
     public ActionResult Edit(int id, KategoriEditModel model)
     {
-        if(id != model.Id) {
-             return RedirectToAction("Index");
-        }
-
-        var entity = _context.Kategoriler.FirstOrDefault(i => i.Id == model.Id);
-
-        if(entity != null) {
-
-            entity.KategoriAdi = model.KategoriAdi;
-            entity.Url = model.Url;
-
-            _context.SaveChanges();
-
-            // TempData buradaki bilgiyi başka bir controller da kullanabilmemizi sağlar.
-            TempData["Message"] = $"{model.KategoriAdi} Kategorisi Güncellendi";
-
+        if (id != model.Id)
+        {
             return RedirectToAction("Index");
         }
 
+        if (ModelState.IsValid)
+        {
+            var entity = _context.Kategoriler.FirstOrDefault(i => i.Id == model.Id);
+
+            if (entity != null)
+            {
+
+                entity.KategoriAdi = model.KategoriAdi;
+                entity.Url = model.Url;
+
+                _context.SaveChanges();
+
+                // TempData buradaki bilgiyi başka bir controller da kullanabilmemizi sağlar.
+                TempData["Message"] = $"{model.KategoriAdi} Kategorisi Güncellendi";
+
+                return RedirectToAction("Index");
+            }
+        }
+        
         return View(model);
     }
 
