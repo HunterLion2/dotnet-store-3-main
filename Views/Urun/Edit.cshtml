@@ -15,12 +15,17 @@
                     </a>
                 </div>
                 <div class="card-body">
-
+                    <div asp-validation-summary="All" class="text-danger"></div>
                     <input type="hidden" name="Id" value="@Model.Id">
+                    <input type="hidden" name="ResimAdi" value="@Model.ResimAdi"> <!-- Burada ResimAdi değerini yazıyoruz çünkü sayfada eğer istenilen değerler girilmeden kaydet butonuna
+                     basılırsa o zaman tekrardan resim bilgilerini sunucudan çekmeye izin verdirmediğimiz için buraya gizliden bir resim bilgisi koyarız ve burası aslında
+                     bilgiyi çeker bu sayede yanlış bilgi girilse bile resim bilgisi çekilebilir benzeri bir uygulamayı yukarıda Id içinde yaptık.-->
+                    
                     <div class="row mb-3">
                         <label asp-for="UrunAdi" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
                             <input asp-for="UrunAdi" class="form-control">
+                            <span asp-validation-for="UrunAdi" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -33,18 +38,21 @@
                         <label asp-for="Fiyat" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
                             <input asp-for="Fiyat" class="form-control">
+                            <span asp-validation-for="Fiyat" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label asp-for="Aktif" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
                             <input asp-for="Aktif" class="form-check-input">
+                            <span asp-validation-for="Aktif" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label asp-for="Anasayfa" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
                             <input asp-for="Anasayfa" class="form-check-input">
+                            <span asp-validation-for="Anasayfa" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -53,7 +61,7 @@
                             @* asp-items bizim foreach ile yapıcağımız özelliği yapar ve  *@
                             <select asp-for="KategoriId" class="form-select" asp-items="ViewBag.Kategoriler">
                                 <option value="" selected>Seçiniz</option>
-
+                                <span asp-validation-for="KategoriId" class="text-danger"></span>
                                 @* @foreach(var kategori in ViewData["Kategoriler"] as List<Kategori>) *@
                                 @* @foreach(var kategori in ViewBag.Kategoriler) // Bu şekilde ViewBag kullandığımız zaman getirdiğimiz değerin türünü belirtmek zorunda kalmayız.
                                 {
@@ -77,7 +85,8 @@
             <div class="card shadow">
                 <div class="card-body">
                     <img src="~/img/@Model.ResimAdi" class="img-thumbnail" alt="">
-                    <input asp-for="ResimDosyası" class="form-control mt-3">
+                    <input asp-for="Resim" class="form-control mt-3">
+                    <span asp-validation-for="Resim" class="text-danger"></span>
                 </div>
             </div>
         </div>

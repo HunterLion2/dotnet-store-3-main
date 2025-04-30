@@ -83,8 +83,9 @@ public class UrunController : Controller
     // public ActionResult Create([Bind("UrunAdi", "Aciklama")]UrunCreateModel model)
     public async Task<ActionResult> CreateAsync(UrunCreateModel model)
     {
-        if(model.Resim == null || model.Resim.Length == 0) {
-            ModelState.AddModelError("Resim","Resim Seçmelisiniz"); // İlk girilen değer hatanın hangi değer ile eşleşeceğidir , ikinci değer ise hata sonucu çıkıcak string değerdir yani hata mesajıdır.
+        if (model.Resim == null || model.Resim.Length == 0)
+        {
+            ModelState.AddModelError("Resim", "Resim Seçmelisiniz"); // İlk girilen değer hatanın hangi değer ile eşleşeceğidir , ikinci değer ise hata sonucu çıkıcak string değerdir yani hata mesajıdır.
         }
 
         if (ModelState.IsValid)
@@ -121,7 +122,7 @@ public class UrunController : Controller
             return RedirectToAction("Index");
         }
 
-        ViewBag.Kategoriler = new SelectList(_context.Kategoriler.ToList(), "Id", "KategoriAdi");       
+        ViewBag.Kategoriler = new SelectList(_context.Kategoriler.ToList(), "Id", "KategoriAdi");
         return View(model);
     }
 
@@ -153,38 +154,42 @@ public class UrunController : Controller
             return RedirectToAction("Index");
         }
 
-        var entity = _context.Urunler.FirstOrDefault(i => i.Id == model.Id);
-
-        if (entity != null)
+        if (ModelState.IsValid)
         {
+            var entity = _context.Urunler.FirstOrDefault(i => i.Id == model.Id);
 
-            if (model.ResimDosyası != null)
+            if (entity != null)
             {
-                var fileName = Path.GetRandomFileName() + "jpg"; // Random bir dosya ismi tanımla
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", fileName); // Bir konum belirle
 
-                using (var stream = new FileStream(path, FileMode.Create))
-                {// Burada da ilgili konuma istediğimiz değeri atarız.
-                    await model.ResimDosyası!.CopyToAsync(stream);
+                if (model.Resim != null)
+                {
+                    var fileName = Path.GetRandomFileName() + "jpg"; // Random bir dosya ismi tanımla
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", fileName); // Bir konum belirle
+
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {// Burada da ilgili konuma istediğimiz değeri atarız.
+                        await model.Resim!.CopyToAsync(stream);
+                    }
+
+                    entity.Resim = fileName;
                 }
 
-                entity.Resim = fileName;
+                entity.UrunAdi = model.UrunAdi;
+                entity.Aciklama = model.Aciklama;
+                entity.Aktif = model.Aktif;
+                entity.Anasayfa = model.Anasayfa;
+                // ?? Değeri yazdığımız elementin null olup olmadığına bakar eğer null ise 0 değerini verir.
+                entity.Fiyat = model.Fiyat ?? 0;
+                entity.KategoriId = (int)model.KategoriId!; // (int) değerine çeviririz ve sonrasında da ! diyerek bu değer kesinlikle boş kalmıyacak deriz
+
+                _context.SaveChanges();
+
+                TempData["Message"] = $"{entity.UrunAdi} Kategorisi Güncellendi";
+
+                return RedirectToAction("Index");
             }
-
-            entity.UrunAdi = model.UrunAdi;
-            entity.Aciklama = model.Aciklama;
-            entity.Aktif = model.Aktif;
-            entity.Anasayfa = model.Anasayfa;
-            entity.Fiyat = model.Fiyat;
-            entity.KategoriId = model.KategoriId;
-
-            _context.SaveChanges();
-
-            TempData["Message"] = $"{entity.UrunAdi} Kategorisi Güncellendi";
-
-            return RedirectToAction("Index");
         }
-
+        ViewBag.Kategoriler = new SelectList(_context.Kategoriler.ToList(), "Id", "KategoriAdi");
         return View(model);
     }
 
