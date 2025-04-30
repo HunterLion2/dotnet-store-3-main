@@ -15,41 +15,48 @@
                 </a>
             </div>
             <div class="card-body">
+                <div asp-validation-summary="All" class="text-danger"></div>
                 <form method="post" enctype="multipart/form-data">
                     <div class="row mb-3">
                         <label asp-for="UrunAdi" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
                             <input asp-for="UrunAdi" class="form-control">
+                            <span asp-validation-for="UrunAdi" class="UrunAdi"></span>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label asp-for="Aciklama" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
                             <textarea asp-for="Aciklama" rows="3" class="form-control"></textarea>
+                            <span asp-validation-for="Aciklama" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label asp-for="Fiyat" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
                             <input asp-for="Fiyat" class="form-control">
+                            <span asp-validation-for="Fiyat" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label asp-for="Aktif" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
                             <input asp-for="Aktif" class="form-check-input">
+                            <span asp-validation-for="Aktif" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label asp-for="Anasayfa" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
                             <input asp-for="Anasayfa" class="form-check-input">
+                            <span asp-validation-for="Anasayfa" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label asp-for="Resim" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
                             <input asp-for="Resim" type="file">
+                            <span asp-validation-for="Resim" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -58,6 +65,7 @@
                             @* asp-items bizim foreach ile yapıcağımız özelliği yapar ve  *@
                             <select asp-for="KategoriId" class="form-select" asp-items="ViewBag.Kategoriler">
                                 <option value="" selected>Seçiniz</option>
+                                <span asp-validation-for="Resim" class="text-danger"></span>
 
                                 @* @foreach(var kategori in ViewData["Kategoriler"] as List<Kategori>) *@
                                 @* @foreach(var kategori in ViewBag.Kategoriler) // Bu şekilde ViewBag kullandığımız zaman getirdiğimiz değerin türünü belirtmek zorunda kalmayız.

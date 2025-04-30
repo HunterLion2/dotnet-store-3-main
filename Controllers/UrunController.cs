@@ -2,6 +2,7 @@ using dotnet_store.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace dotnet_store.Controllers;
 
@@ -73,53 +74,62 @@ public class UrunController : Controller
         // Buradaki Gibi De Olur
         // ViewBag.Kategoriler = _context.Kategoriler.ToList();
 
-        ViewBag.Kategoriler = new SelectList( _context.Kategoriler.ToList(), "Id", "KategoriAdi");
-
-        
+        ViewBag.Kategoriler = new SelectList(_context.Kategoriler.ToList(), "Id", "KategoriAdi");
         return View();
     }
 
     [HttpPost]
-
     // Aşşağıda ki Bind kısmı model içerisinde ki bilgilerden seçmece yapıp istediğimizi getirmemizi sağlar.
     // public ActionResult Create([Bind("UrunAdi", "Aciklama")]UrunCreateModel model)
-
     public async Task<ActionResult> CreateAsync(UrunCreateModel model)
     {
-        // Buradaki Path.GetRandomFileName() methodu sayesinde random bir dosya ismi oluşturmuş oluruz bu sayede aynı dosya ismi kazara girilmemiş olur.
-        var fileName = Path.GetRandomFileName() + "jpg";
-
-        // Burada yapmış olduğum işlem mevcut olan ana dizin alıp bu yola  wwwroot/img bunu eklemiş olurum.
-        // En sona da içerine atacağım değeri yazarım.
-        var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img",fileName);
-
-        // FileStream: Dosya üzerinde okuma/yazma işlemleri yapmak için kullanılan bir sınıftır.
-        // path: Dosyanın kaydedileceği tam dosya yolu. Örneğin: "wwwroot/img/example.jpg".
-        // FileMode.Create: Eğer belirtilen dosya zaten varsa, üzerine yazar. Eğer dosya yoksa, yeni bir dosya oluşturur.
-        using(var stream = new FileStream(path, FileMode.Create)) {
-            await model.Resim!.CopyToAsync(stream);
+        if(model.Resim == null || model.Resim.Length == 0) {
+            ModelState.AddModelError("Resim","Resim Seçmelisiniz"); // İlk girilen değer hatanın hangi değer ile eşleşeceğidir , ikinci değer ise hata sonucu çıkıcak string değerdir yani hata mesajıdır.
         }
 
-        var entity = new Urun()
+        if (ModelState.IsValid)
         {
-            UrunAdi = model.UrunAdi,
-            Aciklama = model.Aciklama,
-            Fiyat = model.Fiyat,
-            Aktif = model.Aktif,
-            Anasayfa = model.Anasayfa,
-            KategoriId = model.KategoriId, 
-            Resim = fileName
-        };
+            // Buradaki Path.GetRandomFileName() methodu sayesinde random bir dosya ismi oluşturmuş oluruz bu sayede aynı dosya ismi kazara girilmemiş olur.
+            var fileName = Path.GetRandomFileName() + "jpg";
 
-        _context.Urunler.Add(entity);
-        _context.SaveChanges();
+            // Burada yapmış olduğum işlem mevcut olan ana dizin alıp bu yola  wwwroot/img bunu eklemiş olurum.
+            // En sona da içerine atacağım değeri yazarım.
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", fileName);
 
-        return RedirectToAction("Index");
+            // FileStream: Dosya üzerinde okuma/yazma işlemleri yapmak için kullanılan bir sınıftır.
+            // path: Dosyanın kaydedileceği tam dosya yolu. Örneğin: "wwwroot/img/example.jpg".
+            // FileMode.Create: Eğer belirtilen dosya zaten varsa, üzerine yazar. Eğer dosya yoksa, yeni bir dosya oluşturur.
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await model.Resim!.CopyToAsync(stream);
+            }
+
+            var entity = new Urun()
+            {
+                UrunAdi = model.UrunAdi,
+                Aciklama = model.Aciklama,
+                Fiyat = model.Fiyat ?? 0,
+                Aktif = model.Aktif,
+                Anasayfa = model.Anasayfa,
+                KategoriId = (int)model.KategoriId!,
+                Resim = fileName
+            };
+
+            _context.Urunler.Add(entity);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        ViewBag.Kategoriler = new SelectList(_context.Kategoriler.ToList(), "Id", "KategoriAdi");       
+        return View(model);
     }
 
-    public ActionResult Edit(int id) {
+    public ActionResult Edit(int id)
+    {
 
-        var entity = _context.Urunler.Select(i => new UrunEditModel{
+        var entity = _context.Urunler.Select(i => new UrunEditModel
+        {
             UrunAdi = i.UrunAdi,
             Aciklama = i.Aciklama,
             Fiyat = i.Fiyat,
@@ -131,25 +141,30 @@ public class UrunController : Controller
 
         }).FirstOrDefault(i => i.Id == id);
 
-        ViewBag.Kategoriler = new SelectList( _context.Kategoriler.ToList(), "Id", "KategoriAdi");
+        ViewBag.Kategoriler = new SelectList(_context.Kategoriler.ToList(), "Id", "KategoriAdi");
         return View(entity);
     }
 
     [HttpPost]
-    public async Task<ActionResult> EditAsync(int id, UrunEditModel model) {
-        if(id != model.Id) {
+    public async Task<ActionResult> EditAsync(int id, UrunEditModel model)
+    {
+        if (id != model.Id)
+        {
             return RedirectToAction("Index");
         }
 
         var entity = _context.Urunler.FirstOrDefault(i => i.Id == model.Id);
 
-        if(entity != null) {
+        if (entity != null)
+        {
 
-            if(model.ResimDosyası != null) {
+            if (model.ResimDosyası != null)
+            {
                 var fileName = Path.GetRandomFileName() + "jpg"; // Random bir dosya ismi tanımla
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img",fileName); // Bir konum belirle
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", fileName); // Bir konum belirle
 
-                using(var stream = new FileStream(path, FileMode.Create)) {// Burada da ilgili konuma istediğimiz değeri atarız.
+                using (var stream = new FileStream(path, FileMode.Create))
+                {// Burada da ilgili konuma istediğimiz değeri atarız.
                     await model.ResimDosyası!.CopyToAsync(stream);
                 }
 
