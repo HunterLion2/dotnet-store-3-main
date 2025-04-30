@@ -46,9 +46,9 @@
                                             </td>
                                         }
                                         
-                                        <td>@((slide.Index) + 1)</td>
+                                        <td>@slide.Index</td>
                                         <td>
-                                            <a href="kategori-ekle.html" class="btn btn-primary btn-sm">
+                                            <a asp-controller="Slider" asp-action="Edit" asp-route-id="@slide.Id" class="btn btn-primary btn-sm">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                         </td>
