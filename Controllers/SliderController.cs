@@ -92,6 +92,39 @@ public class SliderController: Controller {
         return View(model);
     }
 
+    public ActionResult Delete(int? id) {
+        if(id == null) {
+            return RedirectToAction("Index");
+        }
+
+        var entity = _context.Sliderlar.FirstOrDefault(i => i.Id == id);
+
+        if(entity != null) {
+            return View(entity);
+        }
+
+        return RedirectToAction("Index");
+    }
+
+
+    [HttpPost]
+    public ActionResult DeleteConfirm(int? id) {
+
+        if(id == null) {
+            return RedirectToAction("Index");
+        }
+
+        var entity = _context.Sliderlar.FirstOrDefault(i => i.Id == id);
+        
+        if(entity != null) {
+            _context.Sliderlar.Remove(entity);
+            _context.SaveChanges();
+
+            TempData["Message"] = $"{entity.Baslik} Slider'ı Silindi";
+        }
+        return RedirectToAction("Index");
+    }
+
 
 
 }

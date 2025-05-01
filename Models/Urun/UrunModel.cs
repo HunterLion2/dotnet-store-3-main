@@ -5,7 +5,6 @@ public class UrunModel {
 
     [Display(Name = "Ürün Adı")]
     [Required(ErrorMessage = "Ürün Adı Girmelisiniz.")]
-    [StringLength(50, ErrorMessage = "Ürün Adı İçin Maksimum 10-50 Karakter Girmelisiniz.", MinimumLength = 30)]
     public string UrunAdi { get; set; } = null!;
     
     [Display(Name = "Ürün Fiyat")]

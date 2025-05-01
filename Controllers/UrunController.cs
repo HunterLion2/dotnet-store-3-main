@@ -14,8 +14,15 @@ public class UrunController : Controller
         _context = context;
     }
 
-    public ActionResult Index()
+    public ActionResult Index(int? kategori)
     {
+        // AsQueryable() değeri ile oluşturulan sorgular yalnızca sonuçlara erişildiğinde (örneğin, ToList() çağrıldığında) çalıştırılır.
+        var query = _context.Urunler.AsQueryable();
+
+        if(kategori != null) {
+            query = query.Where(i => i.KategoriId == kategori);
+        }
+
         var urunler = _context.Urunler.Select(i => new UrunGetModel
         {
             Id = i.Id,
@@ -26,6 +33,7 @@ public class UrunController : Controller
             KategoriAdi = i.Kategori.KategoriAdi,
             Resim = i.Resim
         }).ToList();
+        ViewBag.Kategoriler = new SelectList(_context.Kategoriler.ToList(), "Id", "KategoriAdi", kategori);
 
         return View(urunler);
     }

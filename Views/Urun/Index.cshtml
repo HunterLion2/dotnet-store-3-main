@@ -12,7 +12,23 @@
                 </a>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
+                <form method="get ">
+                    <div class="input-group mb-2">
+                        <select name="kategori" class="form-select" asp-items="ViewBag.Kategoriler">
+                            <option value="" selected>Hepsi</option>
+                        </select>
+                        <button class="btn btn-secondary" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Count değeri ürünün varlığına bakar ona göre 1 veya 0 değeri döndürür.   -->
+                @if(Model.Count == 0) {
+                    <p class="text-danger mb-3">Ürün Bulunamadı.</p>
+                } 
+                else {
+                    <div class="table-responsive">
                     <table class="table table-bordered table-hover table-striped mb-0">
                         <thead class="table-secondary">
                             <tr>
@@ -32,7 +48,7 @@
                                 <tr>
                                     <td>@urun.Id</td>
                                     <td>
-                                        <img src="img/@urun.Resim" class="img-fluid" alt="">
+                                        <img src="~/img/@urun.Resim" class="img-fluid" alt="">
                                     </td>
                                     <td>@urun.UrunAdi</td>
                                     <td>@urun.Fiyat ₺</td>
@@ -58,11 +74,13 @@
                                     </td>
                                     <td>@urun.KategoriAdi</td>
                                     <td>
-                                        <a asp-controller="Urun" asp-action="Edit" asp-route-id="@urun.Id" class="btn btn-primary btn-sm">
+                                        <a asp-controller="Urun" asp-action="Edit" asp-route-id="@urun.Id"
+                                            class="btn btn-primary btn-sm">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </a>
-                                        <a asp-controller="Urun" asp-action="Delete" asp-route-id="@urun.Id" class="btn btn-danger btn-sm">
-                                                <i class="fa-solid fa-xmark"></i>
+                                        <a asp-controller="Urun" asp-action="Delete" asp-route-id="@urun.Id"
+                                            class="btn btn-danger btn-sm">
+                                            <i class="fa-solid fa-xmark"></i>
                                         </a>
                                     </td>
                                 </tr>
@@ -70,7 +88,8 @@
 
                         </tbody>
                     </table>
-                </div>
+                    </div>
+                }
             </div>
         </div>
     </div>
