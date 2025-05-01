@@ -6,12 +6,11 @@
 <section class="mt-3">
     <div class="container">
         <div class="card">
-            <div class="row p-1 p-lg-2 gx-2">
-                <div class="col-lg-3 d-none d-lg-block">
+            <div class="row" >
+                @* <div class="col-lg-3 d-none d-lg-block">
                     <!-- menu -->
-                    @await Html.PartialAsync("Partials/Site/_Menu", ViewData["Kategoriler"])
-                </div>
-                <div class="col-lg-9">
+                </div> *@
+                <div class="col-lg-12" style="border-radius: 15px;">
                     <!-- slider -->
                     @await Component.InvokeAsync("Slider")
                 </div>

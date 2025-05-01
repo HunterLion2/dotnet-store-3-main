@@ -1,4 +1,9 @@
 /* admin panel */
+* {
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
 .text-gray-300 {
     color: #dddfeb !important;
 }
