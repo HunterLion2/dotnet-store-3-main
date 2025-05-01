@@ -192,6 +192,4 @@ public class UrunController : Controller
         ViewBag.Kategoriler = new SelectList(_context.Kategoriler.ToList(), "Id", "KategoriAdi");
         return View(model);
     }
-
-
 }

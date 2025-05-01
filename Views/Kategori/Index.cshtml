@@ -36,9 +36,12 @@
                                         <a asp-controller="Kategori" asp-action="Edit" asp-route-id="@kat.Id" class="btn btn-primary btn-sm">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </a>
-                                        <a href="#" class="btn btn-danger btn-sm">
-                                            <i class="fa-solid fa-xmark"></i>
-                                        </a>
+                                        @if(kat.UrunSayisi == 0) {
+                                            <a asp-controller="Kategori" asp-action="Delete" asp-route-id="@kat.Id" class="btn btn-danger btn-sm">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </a>
+                                        }
+                                        
                                     </td>
                                 </tr>
                             }

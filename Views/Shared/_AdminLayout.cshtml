@@ -20,7 +20,17 @@
         @RenderBody()
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
+     <!-- Eğer bu değerin zorunlu olarak girme durumunu yani required değerini false yaparsam o zaman diğer değerlerde hata çıkmaz. -->
+     @RenderSection("Scripts", required: false) @*<!-- Burada adına Scripts dediğimiz dosyayı ben istediğim cshtml dosyasında ,istediğim script kütüphanesini @section Scripts {
+                                                                                                                                                @await Html.PartialAsync("_ValidationScriptsPartial")
+                                                                                                                                                            } --> *@
+                                                                                                                                        @* Buradaki gibi bu değerler yazılır. *@
+
 </body>
 
 </html>
