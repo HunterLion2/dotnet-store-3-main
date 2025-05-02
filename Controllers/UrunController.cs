@@ -23,7 +23,7 @@ public class UrunController : Controller
             query = query.Where(i => i.KategoriId == kategori);
         }
 
-        var urunler = _context.Urunler.Select(i => new UrunGetModel
+        var urunler = query.Select(i => new UrunGetModel
         {
             Id = i.Id,
             UrunAdi = i.UrunAdi,

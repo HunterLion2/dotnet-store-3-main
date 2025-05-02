@@ -153,3 +153,11 @@
     padding: 0;
     border-radius: 25px;
 }
+
+footer {
+    position: relative;  
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: auto;
+}

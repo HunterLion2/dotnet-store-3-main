@@ -360,8 +360,6 @@ E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\dotnet-store.RazorAs
 E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\dotnet-store.RazorAssemblyInfo.cs
 E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\dotnet-store.sourcelink.json
 E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\scopedcss\bundle\dotnet-store.styles.css
-E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\compressed\stxxyg6xyu-h9v4xoiqc9.gz
-E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\compressed\gejvkwke1r-iuupnodv0a.gz
 E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\compressed\ybqhv9wpbv-vwipl5cvsg.gz
 E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\compressed\48lvmql9bb-wqhl0zxvjx.gz
 E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\compressed\v6fbf8u7hm-l6j59c68gs.gz
@@ -442,3 +440,5 @@ E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\refint\dotnet-store.
 E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\dotnet-store.pdb
 E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\dotnet-store.genruntimeconfig.cache
 E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\ref\dotnet-store.dll
+E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\compressed\stxxyg6xyu-4ae28lg8kz.gz
+E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\compressed\gejvkwke1r-abxvk2rc4g.gz

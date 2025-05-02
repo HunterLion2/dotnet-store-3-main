@@ -24,3 +24,17 @@
 .border-left-info {
     border-left: .25rem solid #36b9cc !important;
 }
+
+#total-place {
+    border-radius: 25px;
+    height: 100%;
+    width: 100%;
+}
+
+#KategoriTableSettings {
+    border-radius: 25px;
+}
+
+#slider-table {
+    border-radius: 25px;
+}

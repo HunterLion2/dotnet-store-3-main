@@ -5,22 +5,21 @@
 
 <div class="row">
     <div class="col">
-        <div class="card shadow">
-            <div class="card-header py-1 d-flex justify-content-between align-items-center">
-                <h5 class="card-title">Kategoriler</h5>
-                <a asp-controller="Kategori" asp-action="Create" class="btn btn-sm btn-primary">
+        <div class="shadow" id="KategoriTableSettings">
+            <div class=" py-1 d-flex justify-content-between align-items-center" >
+                <h5 class="card-title p-2">Kategoriler</h5>
+                <a asp-controller="Kategori" asp-action="Create" class="btn btn-sm btn-primary m-2">
                     <i class="fa-solid fa-plus"></i>
                 </a>
             </div>
-            <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped mb-0">
+                    <table class="table table-striped mb-0">
                         <thead class="table-secondary">
                             <tr>
-                                <th>Id</th>
-                                <th>Kategori Adı</th>
-                                <th>Url</th>
-                                <th>Ürün Sayısı</th>
+                                <th class="text-center">Id</th>
+                                <th class="text-center">Kategori Adı</th>
+                                <th class="text-center">Url</th>
+                                <th class="text-center">Ürün Sayısı</th>
                                 <th style="width: 90px;"></th>
                             </tr>
                         </thead>
@@ -28,10 +27,10 @@
                             @foreach (var kat in Model)
                             {
                                 <tr>
-                                    <td>@kat.Id</td>
-                                    <td>@kat.KategoriAdi</td>
-                                    <td>@kat.Url</td>
-                                    <td>@kat.UrunSayisi</td>
+                                    <td class="text-center">@kat.Id</td>
+                                    <td class="text-center">@kat.KategoriAdi</td>
+                                    <td class="text-center">@kat.Url</td>
+                                    <td class="text-center">@kat.UrunSayisi</td>
                                     <td>
                                         <a asp-controller="Kategori" asp-action="Edit" asp-route-id="@kat.Id" class="btn btn-primary btn-sm">
                                             <i class="fa-solid fa-pen-to-square"></i>
@@ -51,7 +50,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
         </div>
     </div>
 </div>
