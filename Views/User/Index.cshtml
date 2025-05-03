@@ -1,0 +1,47 @@
+@using Microsoft.AspNetCore.Identity
+@model List<IdentityUser>
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="row">
+    <div class="col">
+        <div class="shadow" id="KategoriTableSettings">
+            <div class=" py-1 d-flex justify-content-between align-items-center" >
+                <h5 class="card-title p-2">Kullanıcılar</h5>
+                <a href="#" class="btn btn-sm btn-primary m-2">
+                    <i class="fa-solid fa-plus"></i>
+                </a>
+            </div>
+                <div class="table-responsive">
+                    <table class="table table-striped mb-0">
+                        <thead class="table-secondary">
+                            <tr>
+                                <th class="text-center">Id</th>
+                                <th class="text-center">Username</th>
+                                <th class="text-center">Email</th>
+                                <th style="width: 50px;"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var kat in Model)
+                            {
+                                <tr>
+                                    <td class="text-center">@kat.Id</td>
+                                    <td class="text-center">@kat.UserName</td>
+                                    <td class="text-center">@kat.Email</td>
+                                    <td>
+                                        <a asp-controller="User" asp-action="Edit" asp-route-id="@kat.Id" class="btn btn-primary btn-sm">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+</div>

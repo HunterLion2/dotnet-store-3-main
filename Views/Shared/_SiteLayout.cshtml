@@ -17,7 +17,9 @@
 
     <header>
         @await Html.PartialAsync("Partials/Site/_Topbar")
-        @await Component.InvokeAsync("Navbar")
+
+        <!-- RenderSection içine değer girmek için, içine yazmak istediğimiz değeri nereye yazmak istiyorsak biz bu değeri Home un içerisindeki Index içerisine attık. -->
+        @RenderSection("Bar", required: false) <!-- İçine girilen değer her sayfa da olmuyacak anlamına gelir. -->
     </header>
 
     <main>

@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace dotnet_store.Models;
 
-
 public class AccountCreateModel {
 
     [Required]
@@ -26,5 +25,5 @@ public class AccountCreateModel {
     [DataType(DataType.Password)]
     [Compare("Password", ErrorMessage = "Parola Eşleşmiyor")] // Burada girmiş olduğum Compare değeri içine girilen değer ile buradaki değeri karşılaştırır.
     public string ConfirmPassword { get; set; } = null!;
-
+    
 }
