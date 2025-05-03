@@ -442,3 +442,8 @@ E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\dotnet-store.genrunt
 E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\ref\dotnet-store.dll
 E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\compressed\stxxyg6xyu-4ae28lg8kz.gz
 E:\dotnet-store-3-main\dotnet-store-3-main\obj\Debug\net9.0\compressed\gejvkwke1r-abxvk2rc4g.gz
+E:\dotnet-store-3-main\dotnet-store-3-main\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+E:\dotnet-store-3-main\dotnet-store-3-main\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+E:\dotnet-store-3-main\dotnet-store-3-main\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+E:\dotnet-store-3-main\dotnet-store-3-main\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
+E:\dotnet-store-3-main\dotnet-store-3-main\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll

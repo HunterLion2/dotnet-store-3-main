@@ -1,4 +1,5 @@
 using dotnet_store.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,10 @@ builder.Services.AddDbContext<DataContext>(options =>
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
     options.UseSqlite(connectionString);
 });
+
+// Burada yazmış olduğumuz  AddIdentity ile İdentity değeri sayesinde IdentityUser ve IdentityRole adlı tabloları kullanabilir hale geliriz.
+// AddEntityFrameworkStores bu özellik de oluşturulacak tabloların nerede oluşturulacağını söylemiş oluruz.
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<DataContext>();
 
 var app = builder.Build();
 

@@ -1,8 +1,13 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace dotnet_store.Models;
 
-public class DataContext : DbContext
+// Onu DbContext kütüphanesinden IdentityDbContext kütüphanesine geçiriyoruz bunun farkı kullanıcı yönetimi ve admin gibi ayarları yapabilmemizdir.
+// Yanına yazdığımız diğer kütüphane ise kullanıcı bilgilerini rahat yönetmek için haızr bir kütüpanedir
+
+public class DataContext : IdentityDbContext<IdentityUser>
 {
     public DataContext(DbContextOptions<DataContext> options) : base(options)
     {
