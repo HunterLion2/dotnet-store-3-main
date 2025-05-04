@@ -1,5 +1,3 @@
-using System.Threading.Tasks;
-using dotnet_store.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,7 +16,8 @@ public class UserController : Controller
     }
 
     public ActionResult Index() {
-        return View(_userManager.Users);
+        var users = _userManager.Users.ToList();
+        return View(users);
     }
 
 }

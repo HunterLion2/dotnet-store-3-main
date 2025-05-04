@@ -17,6 +17,17 @@ builder.Services.AddDbContext<DataContext>(options =>
 // AddEntityFrameworkStores bu özellik de oluşturulacak tabloların nerede oluşturulacağını söylemiş oluruz.
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<DataContext>();
 
+builder.Services.Configure<IdentityOptions>(options => {
+    options.Password.RequiredLength = 7;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireDigit = false;
+
+    options.User.RequireUniqueEmail = true;
+    options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyz0123456789"; 
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
