@@ -6,9 +6,9 @@ namespace dotnet_store.Models;
 public class AccountCreateModel {
 
     [Required]
-    [Display(Name = "Kullanıcı Adı")]
-    [RegularExpression("^[a-zA-Z0-9]*$", ErrorMessage = "Sadece sayı ve harf giriniz.")]
-    public string Username { get; set; } = null!;
+    [Display(Name = "Ad Soyad")]
+    // [RegularExpression("^[a-zA-Z0-9]*$", ErrorMessage = "Sadece sayı ve harf giriniz.")]
+    public string AdSoyad { get; set; } = null!;
 
     [Required]
     [Display(Name = "Eposta")]

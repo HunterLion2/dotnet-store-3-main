@@ -1,4 +1,4 @@
-@model AccountCreateModel
+@model AccountLoginModel
 
 @section Bar {
     <section class="bg-primary p-3">
@@ -9,7 +9,7 @@
                         <a href="#">Anasayfa</a>
                     </li>
                     <li class="breadcrump-item text-white p-2">
-                        Kullanıcı Ekle
+                        Kullanıcı Login
                     </li>
                 </ol>
             </nav>
@@ -24,11 +24,6 @@
                 <div class="card card-body">
                     <form method="post">
                         <div asp-validation-summary="All" class="text-danger"></div>
-                        <div class="mb-3">
-                            <label asp-for="AdSoyad" class="form-label"></label>
-                            <input asp-for="AdSoyad" class="form-control">
-                            <span asp-validation-for="AdSoyad" class="text-danger"></span>
-                        </div>
                         
                         <div class="mb-3">
                             <label asp-for="Email" class="form-label"></label>
@@ -40,10 +35,10 @@
                             <input asp-for="Password" class="form-control">
                             <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
-                        <div class="mb-3">
-                            <label asp-for="ConfirmPassword" class="form-label"></label>
-                            <input asp-for="ConfirmPassword" class="form-control">
-                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        <div class="mb-3 form-check">
+                            <label asp-for="BeniHatirla" class="form-check-input"></label>
+                            <input asp-for="BeniHatirla" class="form-check-label">
+                            <span asp-validation-for="BeniHatirla" class="text-danger"></span>
                         </div>
                         <button type="submit" class="btn btn-primary">Kaydet</button>
                     </form>

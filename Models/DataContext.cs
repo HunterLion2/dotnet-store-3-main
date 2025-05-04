@@ -6,8 +6,8 @@ namespace dotnet_store.Models;
 
 // Onu DbContext kütüphanesinden IdentityDbContext kütüphanesine geçiriyoruz bunun farkı kullanıcı yönetimi ve admin gibi ayarları yapabilmemizdir.
 // Yanına yazdığımız diğer kütüphane ise kullanıcı bilgilerini rahat yönetmek için haızr bir kütüpanedir
-
-public class DataContext : IdentityDbContext<IdentityUser>
+                                          // Burada AppUser ve AppRole yani kendi eklediğim entityleri buraya yazdıktan sonra ıd değerinin nasıl keydedileceğini 3. değer de yazarız biz burada bu değere int demiş olduk.
+public class DataContext : IdentityDbContext<AppUser, AppRole,int>
 {
     public DataContext(DbContextOptions<DataContext> options) : base(options)
     {
