@@ -7,12 +7,26 @@
 
             <div class="col-lg-5 col-sm-8 col-8 order-lg-last">
                 <div class="text-end">
-                    <a href="#" class="btn btn-light">
-                        <i class="fa fa-user"></i> <span class="ms-1 d-none d-sm-inline-block">Hesabım</span>
-                    </a>
-                    <a href="#" class="btn btn-light">
-                        <i class="fa fa-heart"></i> <span class="ms-1 d-none d-sm-inline-block">Listem</span>
-                    </a>
+                    <!-- Burada yazmış olduğumuz user bilgisi oturum açmış kullanıcıya ait bilgileri temsil eder. -->
+                    <!-- IsAuthenticated değeri kullanıcının kimlik doğrulama işleminin başarılı olarak gerçekleşip gerçekleşmediğine bakar -->
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        <a asp-controller="Account" asp-action="Settings" class="btn btn-light">
+                            <i class="fa fa-user"></i> <span class="ms-1 d-none d-sm-inline-block">Hesabım</span>
+                        </a>
+                        <a asp-controller="Account" asp-action="Logout" class="btn btn-light">
+                            <i class="fa fa-heart"></i> <span class="ms-1 d-none d-sm-inline-block">Çıkış Yap</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="Login" class="btn btn-light">
+                            <i class="fa-solid fa-right-to-bracket"></i> <span class="ms-1 d-none d-sm-inline-block">Giriş Yap</span>
+                        </a>
+                        <a asp-controller="Account" asp-action="Create" class="btn btn-light">
+                            <i class="fa-solid fa-user-plus"></i> <span class="ms-1 d-none d-sm-inline-block">Üye Ol</span>
+                        </a>
+                    }
                     <a href="shopping-cart.html" class="btn btn-light">
                         <i class="fa fa-shopping-cart"></i> <span class="ms-1 d-none d-sm-inline-block">Sepetim</span>
                     </a>
