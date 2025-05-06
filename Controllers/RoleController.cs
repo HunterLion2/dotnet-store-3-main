@@ -55,6 +55,7 @@ public class RoleController : Controller
         return RedirectToAction("Index");
     }
 
+    [HttpPost]
     public async Task<ActionResult> Edit(string id, RoleEditModel model) {
         if(ModelState.IsValid) {
             var entity = await _roleManager.FindByIdAsync(id);
@@ -77,5 +78,36 @@ public class RoleController : Controller
         }
         return View(model);
     }   
+
+    public async Task<ActionResult> Delete(string id) {
+        if(id == null) {
+            return RedirectToAction("Index");
+        }
+
+        var roleid = await _roleManager.FindByIdAsync(id);
+
+        if(roleid != null) {
+            return View(roleid);
+        }
+
+        return RedirectToAction("Index");
+        
+    }
+
+    public async Task<ActionResult> DeleteConfirm(string? id) {
+        if(id == null) {
+            return RedirectToAction("Index");
+        }
+
+        var roleid = await _roleManager.FindByIdAsync(id);
+
+        if(roleid != null) {
+            await _roleManager.DeleteAsync(roleid);
+
+            TempData["Mesaj"] = $"{roleid.Name} rolü silindi";
+        }
+
+        return RedirectToAction("Index");
+    }
 
 }
