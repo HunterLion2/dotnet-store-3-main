@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "L8rElcCAaXI=",
+  "dgSpecHash": "KF2r9F6Rs7Q=",
   "success": true,
-  "projectFilePath": "E:\\dotnet-store-3-main\\dotnet-store-3-main\\dotnet-store.csproj",
+  "projectFilePath": "C:\\Users\\cozgu\\Documents\\dotnet-store(Son)\\dotnet-store.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cozgu\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\cozgu\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\9.0.4\\microsoft.aspnetcore.cryptography.internal.9.0.4.nupkg.sha512",

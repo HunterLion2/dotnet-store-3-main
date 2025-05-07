@@ -17,173 +17,177 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = dotnet_store
 build_property.RootNamespace = dotnet_store
-build_property.ProjectDir = E:\dotnet-store-3-main\dotnet-store-3-main\
+build_property.ProjectDir = C:\Users\cozgu\Documents\dotnet-store(Son)\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\dotnet-store-3-main\dotnet-store-3-main
+build_property.MSBuildProjectDirectory = C:\Users\cozgu\Documents\dotnet-store(Son)
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Account/Create.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Account/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Account/Login.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Account/Settings.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Account/Settings.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTZXR0aW5ncy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Admin/Index.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Home/Index.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Kategori/Create.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Kategori/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Kategori/Delete.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Kategori/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Kategori/Edit.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Kategori/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Kategori/Index.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Kategori/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Role/Create.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Role/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Role/Delete.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Role/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Role/Edit.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Role/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Role/Index.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Role/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Shared/Components/Navbar/Default.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Shared/Components/Navbar/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmF2YmFyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Shared/Components/Slider/Default.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Shared/Components/Slider/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2xpZGVyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Shared/Error.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Shared/Partials/Admin/_AdminCards.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Shared/Partials/Admin/_AdminCards.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXEFkbWluXF9BZG1pbkNhcmRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Shared/Partials/Admin/_Message.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Shared/Partials/Admin/_Message.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXEFkbWluXF9NZXNzYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Shared/Partials/Admin/_Navbar.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Shared/Partials/Admin/_Navbar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXEFkbWluXF9OYXZiYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Shared/Partials/Admin/_NewOrders.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Shared/Partials/Admin/_NewOrders.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXEFkbWluXF9OZXdPcmRlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Shared/Partials/Site/_Footer.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Shared/Partials/Site/_Footer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXFNpdGVcX0Zvb3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Shared/Partials/Site/_Menu.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Shared/Partials/Site/_Menu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXFNpdGVcX01lbnUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Shared/Partials/Site/_Topbar.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Shared/Partials/Site/_Topbar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXFNpdGVcX1RvcGJhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Shared/Partials/Site/_UrunCard.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Shared/Partials/Site/_UrunCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXFNpdGVcX1VydW5DYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Shared/_AdminLayout.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Shared/_SiteLayout.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Shared/_SiteLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaXRlTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Slider/Create.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Slider/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xpZGVyXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Slider/Delete.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Slider/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xpZGVyXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Slider/Edit.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Slider/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xpZGVyXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Slider/Index.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Slider/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xpZGVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Urun/Create.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Urun/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXJ1blxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Urun/Delete.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Urun/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXJ1blxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Urun/Details.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Urun/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXJ1blxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Urun/Edit.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Urun/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXJ1blxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Urun/Index.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Urun/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXJ1blxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/Urun/List.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/Urun/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXJ1blxMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/User/Index.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/User/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/_ViewImports.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/dotnet-store-3-main/dotnet-store-3-main/Views/_ViewStart.cshtml]
+[C:/Users/cozgu/Documents/dotnet-store(Son)/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

@@ -31,7 +31,7 @@ public class AccountController : Controller
             // Burada user değeri ile bir kullanıcı oluşturmuş olduk.
             var user = new AppUser {
                 UserName = model.Email,
-                AsSoyad = model.AdSoyad,
+                AdSoyad = model.AdSoyad,
                 Email = model.Email
             };
 

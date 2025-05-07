@@ -3259,11 +3259,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\dotnet-store-3-main\\dotnet-store-3-main\\dotnet-store.csproj",
+      "projectUniqueName": "C:\\Users\\cozgu\\Documents\\dotnet-store(Son)\\dotnet-store.csproj",
       "projectName": "dotnet-store",
-      "projectPath": "E:\\dotnet-store-3-main\\dotnet-store-3-main\\dotnet-store.csproj",
+      "projectPath": "C:\\Users\\cozgu\\Documents\\dotnet-store(Son)\\dotnet-store.csproj",
       "packagesPath": "C:\\Users\\cozgu\\.nuget\\packages\\",
-      "outputPath": "E:\\dotnet-store-3-main\\dotnet-store-3-main\\obj\\",
+      "outputPath": "C:\\Users\\cozgu\\Documents\\dotnet-store(Son)\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
