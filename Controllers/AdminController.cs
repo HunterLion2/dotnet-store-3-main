@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace dotnet_store.Controllers;
 
 
-[Authorize] // Ben bu değer ile admincontroller değerini sadece kimliği doğrulanmış kişilerin çağırabileceğini söylemiş olurum.
+[Authorize(Roles = "Admin")] // Ben bu değer ile admincontroller değerini sadece Roles değeri Admin değerine sahip olanlar girebilir derim
 
 public class AdminController : Controller
 {

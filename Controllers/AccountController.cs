@@ -100,6 +100,7 @@ public class AccountController : Controller
         return View(model);
     }
 
+    [Authorize]
     public async Task<ActionResult> Logout() {
         await _signInManager.SignOutAsync();
         return RedirectToAction("Login","Account");
@@ -107,6 +108,10 @@ public class AccountController : Controller
 
     [Authorize]
     public ActionResult Settings() {
+        return View();
+    }
+
+    public ActionResult AccessDenied() {
         return View();
     }
 

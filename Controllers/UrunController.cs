@@ -1,4 +1,5 @@
 using dotnet_store.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -6,9 +7,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace dotnet_store.Controllers;
 
+[Authorize(Roles = "Admin")]
 public class UrunController : Controller
 {
     private readonly DataContext _context;
+
+    
     public UrunController(DataContext context)
     {
         _context = context;
@@ -38,6 +42,7 @@ public class UrunController : Controller
         return View(urunler);
     }
 
+    [AllowAnonymous] // Bunu yazdığım zaman dediğim zaman Roles değeri yani yukarıda belirlemiş olduğum değere sen girmiyorsun yani burayı görmeleri için Roles değeri Admin olmasına gerek yoktur derim.
     public ActionResult List(string url, string q)
     {
         var query = _context.Urunler.Where(i => i.Aktif);

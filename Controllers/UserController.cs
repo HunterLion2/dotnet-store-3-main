@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using dotnet_store.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,15 +8,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace dotnet_store.Controllers;
 
+[Authorize(Roles = "Admin")]
 public class UserController : Controller
 {
     // Mesela girilen bir password değerini biz string olarak kaydediyoruz fakat bizim 
     // bunları database atarken şifreli şekilde atmamız lazım aşşağıda işlem buna yarıyor. 
 
     private UserManager<AppUser> _userManager;
-    private RoleManager<AppUser> _roleManager;
+    private RoleManager<AppRole> _roleManager;
 
-    public UserController(UserManager<AppUser> userManager, RoleManager<AppUser> roleManager)
+    public UserController(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
     {
         _userManager = userManager;
         _roleManager = roleManager;
@@ -23,8 +25,7 @@ public class UserController : Controller
 
     public ActionResult Index()
     {
-        var users = _userManager.Users.ToList();
-        return View(users);
+        return View(_userManager.Users);
     }
 
     public ActionResult Create()
@@ -70,7 +71,7 @@ public class UserController : Controller
             return RedirectToAction("Index");
         }
 
-        ViewBag.Roles = await _roleManager.Roles.Select(i => i.UserName).ToListAsync();
+        ViewBag.Roles = await _roleManager.Roles.Select(i => i.Name).ToListAsync();
 
         var entity = new UserEditModel
         {

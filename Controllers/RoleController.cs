@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace dotnet_store.Controllers;
 
-
+[Authorize(Roles = "Admin")]
 public class RoleController : Controller
 {
 
