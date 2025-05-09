@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace dotnet_store.Controllers;
 
-[Authorize(Roles = "Admin")]
+[Authorize(Roles = "Admin")] // Ben bu değer ile admincontroller değerini sadece Roles değeri Admin değerine sahip olanlar girebilir derim
 public class UserController : Controller
 {
     // Mesela girilen bir password değerini biz string olarak kaydediyoruz fakat bizim 
@@ -25,7 +25,8 @@ public class UserController : Controller
 
     public ActionResult Index()
     {
-        return View(_userManager.Users);
+        var users = _userManager.Users.ToList();
+        return View(users);
     }
 
     public ActionResult Create()
@@ -73,20 +74,19 @@ public class UserController : Controller
 
         ViewBag.Roles = await _roleManager.Roles.Select(i => i.Name).ToListAsync();
 
-        var entity = new UserEditModel
-        {
-            AdSoyad = user.AdSoyad,
-            Email = user.Email!,
-            SelectedRoles = await _userManager.GetRolesAsync(user)
-        };
-
-        return View(entity);
+        return View(
+            new UserEditModel
+            {
+                AdSoyad = user.AdSoyad,
+                Email = user.Email!,
+                SelectedRoles = await _userManager.GetRolesAsync(user)
+            }
+        );
     }
 
     [HttpPost]
     public async Task<ActionResult> Edit(string id, UserEditModel model)
     {
-
         if (ModelState.IsValid)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -98,28 +98,19 @@ public class UserController : Controller
 
                 var result = await _userManager.UpdateAsync(user);
 
-                if (result.Succeeded && !string.IsNullOrEmpty(model.Password)) {
+                if (result.Succeeded && !string.IsNullOrEmpty(model.Password))
+                {
                     // Parola Güncelleme
-
                     await _userManager.RemovePasswordAsync(user); // Burada yaptığımız eğer kullanıcının bir parolası halihazırda bulunuyorsa bunu kaldırır.
                     await _userManager.AddPasswordAsync(user, model.Password); // Burada da kaldırdığımız değere yeni değerler ekleriz.
                 }
 
                 if (result.Succeeded)
                 {
-                    var roles = await _userManager.GetRolesAsync(user);
-                    foreach (var role in roles)
+                    await _userManager.RemoveFromRolesAsync(user, await _userManager.GetRolesAsync(user));
+                    if (model.SelectedRoles != null)
                     {
-                        await _userManager.RemoveFromRoleAsync(user, role);
-                    }
-                    if(model.SelectedRoles != null) {
-                        if (model.SelectedRoles != null)
-                        {
-                            foreach (var role in model.SelectedRoles)
-                            {
-                                await _userManager.AddToRoleAsync(user, role);
-                            }
-                        }
+                        await _userManager.AddToRolesAsync(user, model.SelectedRoles);
                     }
                     return RedirectToAction("Index");
                 }

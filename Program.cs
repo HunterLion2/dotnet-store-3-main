@@ -19,7 +19,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 // builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<DataContext>();
 
 // Burada artık IdentityUser yerine kendi oluşturmuş olduğumuz AppUser'ı kullanıyoruz aşşağıdaki Role içinde bu geçerli.
-builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<DataContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<DataContext>().AddDefaultTokenProviders(); // AddDefaultTokenProviders özelliği ile uygulamaya Token oluşturma yeteneği kazandırırız.
 
 builder.Services.Configure<IdentityOptions>(options => {
     options.Password.RequiredLength = 7;

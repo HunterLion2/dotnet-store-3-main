@@ -227,4 +227,30 @@ public class AccountController : Controller
         return View();
     }
 
+    [HttpPost]
+    public async Task<ActionResult> ForgotPassword(string email)
+    {
+        if(string.IsNullOrEmpty(email)) {
+            TempData["Message"] = "Email Adresi Boş Geçilemez";
+            return View();
+        }
+
+        var user = await _userManager.FindByEmailAsync(email); // Burada gönderdiğimiz email adresi ile eşleşen bir email var mı diye bakarız.
+
+        if(user == null) {
+            TempData["Message"] = "Böyle bir email adresi bulunamadı";
+            return View();
+        }
+
+        var token = await _userManager.GeneratePasswordResetTokenAsync(user); // Burada kullanıcı için özel bir token oluşturmuş olduk.
+
+        // Burada bir url oluşturduk çünkü
+        // Bu URL, şifre sıfırlama işleminin bir parçasıdır ve kullanıcının güvenli bir şekilde şifresini 
+        // sıfırlayabilmesi için gereklidir. URL, kullanıcıyı doğru action'a yönlendirir ve gerekli bilgileri (userId ve token) taşır.
+        var url = Url.Action("ResetPassword", "Account", new { userId = user.Id, token}); 
+        TempData["Message"] = $"Eposta adresinize gönderilen link ile şifreni sıfırlayabilirsin";
+
+        return RedirectToAction("Login");
+    }
+
 }
