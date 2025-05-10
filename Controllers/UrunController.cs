@@ -62,6 +62,7 @@ public class UrunController : Controller
         return View(query.ToList());
     }
 
+     [AllowAnonymous]
     public ActionResult Details(int id)
     {
         var urun = _context.Urunler.Find(id);
