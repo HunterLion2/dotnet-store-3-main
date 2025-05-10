@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddTransient<IEmailService, SmtpEmailService>(); // Burada demek istediğimiz şey IEmailService interface'i çağırdığımız zaman bana SmtpEmailService servisini çağır yani onu kullanıcam anlamına gelir.
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<DataContext>(options =>

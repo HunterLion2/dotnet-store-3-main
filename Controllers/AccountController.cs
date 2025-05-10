@@ -15,11 +15,14 @@ public class AccountController : Controller
 
     private UserManager<AppUser> _userManager;
     private SignInManager<AppUser> _signInManager; // Uygulamaya giriş işlemlerini bu parametre ile yaparız.
+    private IEmailService _emailService;
 
-    public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+    // ------------- Constructor ----------------
+    public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,IEmailService emailService)
     {
         _userManager = userManager;
         _signInManager = signInManager;
+        _emailService = emailService;
     }
 
     public ActionResult Create()
@@ -248,9 +251,58 @@ public class AccountController : Controller
         // Bu URL, şifre sıfırlama işleminin bir parçasıdır ve kullanıcının güvenli bir şekilde şifresini 
         // sıfırlayabilmesi için gereklidir. URL, kullanıcıyı doğru action'a yönlendirir ve gerekli bilgileri (userId ve token) taşır.
         var url = Url.Action("ResetPassword", "Account", new { userId = user.Id, token}); 
+
+        var link = $"<a href='http://localhost:5162{url}'>Şifre Sıfırlama Linki</a>";
+
+        await _emailService.SendEmailAsync(user.Email!,"Parola Sıfırlama", link); // Burada email gönderme işlemini yapmış olduk.
         TempData["Message"] = $"Eposta adresinize gönderilen link ile şifreni sıfırlayabilirsin";
 
         return RedirectToAction("Login");
     }
 
+    public async Task<ActionResult> ResetPassword(string userId, string token)
+    {
+        if(userId == null || token == null) {
+            return RedirectToAction("Login");
+        }
+
+        var user = await _userManager.FindByIdAsync(userId); 
+
+        if(user == null) {
+            return RedirectToAction("Login");
+        }
+
+        var model = new AccountResetPasswordModel
+        {
+            Token = token,
+            Email = user.Email!
+        };
+
+        return View(model);
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> ResetPassword(AccountResetPasswordModel model)
+    {
+        if(ModelState.IsValid) {
+            var user = await _userManager.FindByEmailAsync(model.Email);
+
+            if(user == null) {
+                return RedirectToAction("Login");
+            }
+
+            var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+
+            if(result.Succeeded) {
+                TempData["Message"] = "Parolanız Başarıyla Değiştirildi";
+                return RedirectToAction("Login");
+            }
+
+            foreach (var error in result.Errors)
+            { 
+                ModelState.AddModelError("", error.Description);
+            }
+        }
+        return View(model);
+    } 
 }
