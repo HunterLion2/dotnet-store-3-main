@@ -17,12 +17,16 @@ public class SmtpEmailService : IEmailService
     private IConfiguration _configuration; // Bunu yazma sebebimiz appsettings.json dosyasından verileri alabilmek için
 
     public SmtpEmailService(IConfiguration configuration)
-    {
+    { 
+
         _configuration = configuration;
     }
 
+    // Burada email gönderme işlemini yapıyoruz.
+
     public async Task SendEmailAsync(string email, string subject, string message)
     {
+
         using (var client = new SmtpClient(_configuration["Email:Host"]))
         {
             client.UseDefaultCredentials = false;// Bunu diyerek kendi ayarlarımızı kullanacağımızı belirtiyoruz.
