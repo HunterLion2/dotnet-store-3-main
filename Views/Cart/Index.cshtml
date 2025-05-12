@@ -32,13 +32,13 @@
                             
                             <li class="py-3 mb-2 border-top list-group-item">
                                 <div class="row align-items-center">
-                                    <div class="col-8">
+                                    <div class="col-7">
                                             <img src="~/img/@item.Urun.Resim" alt="">
                                             <div class="ms-3">
                                                 <a class="text-decoration-none" href="#">
                                                     <h6 class="mb-0">@item.Urun.UrunAdi</h6>
                                                 </a>
-                                                <i class="fa-solid fa-trash-can"></i> Sil
+                                                
                                             </div>
                                     </div>
                                     <div class="col-2">
@@ -47,9 +47,16 @@
                                     <div class="col-2 text-center">
                                         <span class="fw-bold">@item.Urun.Fiyat</span>
                                     </div>
+                                    <div class="col-1">
+                                        <form action="/Cart/RemoveItem" method="post">
+                                            <input type="hidden" name="cartItemId" value="@item.CartItemId">
+                                            <button type="submit" class="btn btn-sm btn-danger">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
                             </li>
-
                             }
                         </ul>
                 </div>

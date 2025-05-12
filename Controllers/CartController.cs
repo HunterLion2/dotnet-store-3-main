@@ -52,6 +52,20 @@ public class CartController : Controller
 
     }
 
+    [HttpPost]
+    public async Task<ActionResult> RemoveItem(int cartItemId) {
+        var cart = await GetCart();
+
+        var item = cart.CartItems.Where(i => i.CartItemId == cartItemId).FirstOrDefault();
+
+        if(item != null) {
+            cart.CartItems.Remove(item);
+            await _context.SaveChangesAsync();
+        }
+
+        return RedirectToAction("Index","Cart");
+    }
+
     private async Task<Cart> GetCart()
     {
 
