@@ -18,18 +18,17 @@ public class CartController : Controller
         _context = context;
     }
 
+    public async Task<ActionResult> Index()
+    {
+        var cart = await GetCart();
+
+        return View(cart);
+    }
+
     [HttpPost]
     public async Task<ActionResult> AddToCart(int urunId, int miktar = 1)
     {
-        var customerId = User.Identity?.Name;
-
-        var cart = await _context.Carts.Include(i => i.CartItems).Where(i => i.CustomerId == customerId).FirstOrDefaultAsync();
-
-        if (cart == null)
-        {
-            cart = new Cart { CustomerId = customerId! };
-            _context.Carts.Add(cart);
-        }
+        var cart = await GetCart();
 
         // var item = cart.CartItems.Where(i => i.UrunId == urunId).Any(); // Any() değeri item değerini soruya döndürür ve true false değer döndürür burada girdiğimiz değer varsa true yoksa false döner 
         var item = cart.CartItems.Where(i => i.UrunId == urunId).FirstOrDefault();
@@ -49,7 +48,28 @@ public class CartController : Controller
 
         await _context.SaveChangesAsync();
 
-        return RedirectToAction("Index","Home");
+        return RedirectToAction("Index", "Cart");
 
+    }
+
+    private async Task<Cart> GetCart()
+    {
+
+        var customerId = User.Identity?.Name;
+
+        var cart = await _context.Carts.Include(i => i.CartItems)
+                                       .ThenInclude(i => i.Urun) // Burada yazdığımız ThenInclude değeri , Include ile ulaştığımız diğer birbirine bağlanan değere bağlandıktan sonra o bağlandığımız değerde yine başka bir değer ile bağlı ise ona bağlanmak için yazılır.
+                                       .Where(i => i.CustomerId == customerId)
+                                       .FirstOrDefaultAsync();
+
+        if (cart == null)
+        {
+            cart = new Cart { CustomerId = customerId! };
+
+            _context.Carts.Add(cart);
+            await _context.SaveChangesAsync();
+        }
+
+        return cart;
     }
 }
