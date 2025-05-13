@@ -31,36 +31,27 @@ public class CartController : Controller
         var cart = await GetCart();
 
         // var item = cart.CartItems.Where(i => i.UrunId == urunId).Any(); // Any() değeri item değerini soruya döndürür ve true false değer döndürür burada girdiğimiz değer varsa true yoksa false döner 
-        var item = cart.CartItems.Where(i => i.UrunId == urunId).FirstOrDefault();
 
-        if (item != null)
-        {
-            item.Miktar += 1;
-        }
-        else
-        {
-            cart.CartItems.Add(new CartItem
-            {
-                UrunId = urunId,
-                Miktar = miktar
-            });
-        }
+        var urun = await _context.Urunler.FirstOrDefaultAsync(i => i.Id == urunId);
 
-        await _context.SaveChangesAsync();
+        if(urun != null) {
+            cart.AddItem(urun,miktar);
+            await _context.SaveChangesAsync();            
+        }
 
         return RedirectToAction("Index", "Cart");
 
     }
 
     [HttpPost]
-    public async Task<ActionResult> RemoveItem(int cartItemId) {
+    public async Task<ActionResult> RemoveItem(int urunId, int miktar) {
         var cart = await GetCart();
 
-        var item = cart.CartItems.Where(i => i.CartItemId == cartItemId).FirstOrDefault();
+        var urun = await _context.Urunler.FirstOrDefaultAsync(i => i.Id == urunId);
 
-        if(item != null) {
-            cart.CartItems.Remove(item);
-            await _context.SaveChangesAsync();
+        if(urun != null) {
+            cart.DeleteItem(urunId,miktar);
+            await _context.SaveChangesAsync();            
         }
 
         return RedirectToAction("Index","Cart");
@@ -69,7 +60,9 @@ public class CartController : Controller
     private async Task<Cart> GetCart()
     {
 
-        var customerId = User.Identity?.Name;
+        // Burada iki soru işaretinin anlamı eğer User.Identity?.Name bölümü null döndürüyorsa o zaman Request.Cookies["customerId"] değerini bana getir yani cookie de olan bölümü bana getir deriz.
+
+        var customerId = User.Identity?.Name ?? Request.Cookies["customerId"];
 
         var cart = await _context.Carts.Include(i => i.CartItems)
                                        .ThenInclude(i => i.Urun) // Burada yazdığımız ThenInclude değeri , Include ile ulaştığımız diğer birbirine bağlanan değere bağlandıktan sonra o bağlandığımız değerde yine başka bir değer ile bağlı ise ona bağlanmak için yazılır.
@@ -78,7 +71,26 @@ public class CartController : Controller
 
         if (cart == null)
         {
-            cart = new Cart { CustomerId = customerId! };
+            // Eğer kullanıcı giriş yapmamışsa, ona özel bir müşteri kimliği (customerId) oluşturmak için
+            // Guid.NewGuid().ToString() kullanılıyor.
+
+            // Böylece her anonim kullanıcıya benzersiz bir sepet atanabiliyor ve çakışma yaşanmıyor.
+            customerId = User.Identity?.Name;
+
+            if(string.IsNullOrEmpty(customerId)) {
+                customerId = Guid.NewGuid().ToString(); // Buradaki Guid değeri benzersiz bir değer oluşturur 203492-203942 gibi aslında bu bizim cookie değerimizdir aşşağıdaki bölümde ayarlarıdır bu ayrımı son zaman Append() yaptığımız zaman ayırt ederiz.
+
+                var cookieOptions = new CookieOptions { // Bu değer ile cookie mizi oluştururuz ve aşşağıda da ayarlamaları yaparız.
+                    Expires = DateTime.Now.AddMonths(1), // Cookie değerinin ne zaman son bulucağını söyler.
+                    IsEssential = true
+                };
+
+                Response.Cookies.Append("customerId",customerId,cookieOptions);
+            }
+
+
+
+            cart = new Cart { CustomerId = customerId };
 
             _context.Carts.Add(cart);
             await _context.SaveChangesAsync();

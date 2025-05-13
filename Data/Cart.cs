@@ -5,6 +5,30 @@ public class Cart {
     public string CustomerId { get; set; } = null!;
     public List<CartItem> CartItems { get; set; } = new();
 
+    public void AddItem(Urun urun , int miktar) {
+        var item = CartItems.Where(i => i.UrunId == urun.Id).FirstOrDefault();
+
+        if(item == null) {
+            CartItems.Add(new CartItem{Urun = urun, Miktar = miktar});
+        } else {
+            item.Miktar += miktar;
+        }
+
+    }
+
+    public void DeleteItem(int urunId, int miktar) {
+        var item = CartItems.Where(i => i.UrunId == urunId).FirstOrDefault();
+
+        if(item != null) {
+            item.Miktar -= miktar;
+
+            if(item.Miktar == 0){
+                CartItems.Remove(item);
+            }
+        }
+
+    }
+
     public double AraToplam() {
         return CartItems.Sum( i => i.Urun.Fiyat * i.Miktar );
     }
