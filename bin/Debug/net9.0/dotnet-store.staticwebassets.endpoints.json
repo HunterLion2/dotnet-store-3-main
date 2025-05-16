@@ -3267,6 +3267,88 @@
       ]
     },
     {
+      "Route": "img/cofoomfh.5iwjpg",
+      "AssetFile": "img/cofoomfh.5iwjpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "231003"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UIzLqf19ZvLExy62Iu4yIMGVDTV0JT6/3tol9Ummv7o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 16 May 2025 10:06:52 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UIzLqf19ZvLExy62Iu4yIMGVDTV0JT6/3tol9Ummv7o="
+        }
+      ]
+    },
+    {
+      "Route": "img/cofoomfh.chcaidfmq0.5iwjpg",
+      "AssetFile": "img/cofoomfh.5iwjpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "231003"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UIzLqf19ZvLExy62Iu4yIMGVDTV0JT6/3tol9Ummv7o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 16 May 2025 10:06:52 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "chcaidfmq0"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-UIzLqf19ZvLExy62Iu4yIMGVDTV0JT6/3tol9Ummv7o="
+        },
+        {
+          "Name": "label",
+          "Value": "img/cofoomfh.5iwjpg"
+        }
+      ]
+    },
+    {
       "Route": "img/ehpfpxgg.bihjpg",
       "AssetFile": "img/ehpfpxgg.bihjpg",
       "Selectors": [],

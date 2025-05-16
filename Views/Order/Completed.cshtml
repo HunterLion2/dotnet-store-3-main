@@ -1,0 +1,28 @@
+@model string
+
+@section Bar {
+    <section class="bg-primary p-3">
+        <div class="container">
+            <nav>
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrump-item p-2">
+                        <a href="#">Anasayfa</a>
+                    </li>
+                    <li class="breadcrump-item">
+                        Siparişi Tamamlandı
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+}
+
+<div class="card card-body my-4 text-center">
+    <h1 class="h3">Teşekkür Ederiz</h1>
+    <p>
+        #@Model Numaralı Siparişiniz Kayıt Edildi
+    </p>
+    <p>
+        <a href="#" class="btn btn-primary">Siparişi Görüntüle</a>
+    </p>
+</div>

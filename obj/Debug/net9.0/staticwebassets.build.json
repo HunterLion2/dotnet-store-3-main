@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Z0QAyvZAcLxfRgRB05O3OMbicfcLjShOsnB6PCALEx0=",
+  "Hash": "yFuTxqmnebIb9SEgUrwUBAMI9+hmxz05Ro9ZWwfoM4s=",
   "Source": "dotnet-store",
   "BasePath": "_content/dotnet-store",
   "Mode": "Default",
@@ -1926,6 +1926,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\8.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\cozgu\\Documents\\dotnet-store(Son)\\wwwroot\\img\\cofoomfh.5iwjpg",
+      "SourceId": "dotnet-store",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\cozgu\\Documents\\dotnet-store(Son)\\wwwroot\\",
+      "BasePath": "_content/dotnet-store",
+      "RelativePath": "img/cofoomfh#[.{fingerprint}]?.5iwjpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "chcaidfmq0",
+      "Integrity": "UIzLqf19ZvLExy62Iu4yIMGVDTV0JT6/3tol9Ummv7o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\cofoomfh.5iwjpg"
     },
     {
       "Identity": "C:\\Users\\cozgu\\Documents\\dotnet-store(Son)\\wwwroot\\img\\ehpfpxgg.bihjpg",
@@ -6681,6 +6702,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-Z/a56M/A8M+Z0uop+hrX5JPK4GAweY6mA28YjO7ds1c="
+        }
+      ]
+    },
+    {
+      "Route": "img/cofoomfh.5iwjpg",
+      "AssetFile": "C:\\Users\\cozgu\\Documents\\dotnet-store(Son)\\wwwroot\\img\\cofoomfh.5iwjpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "231003"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UIzLqf19ZvLExy62Iu4yIMGVDTV0JT6/3tol9Ummv7o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 16 May 2025 10:06:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UIzLqf19ZvLExy62Iu4yIMGVDTV0JT6/3tol9Ummv7o="
+        }
+      ]
+    },
+    {
+      "Route": "img/cofoomfh.chcaidfmq0.5iwjpg",
+      "AssetFile": "C:\\Users\\cozgu\\Documents\\dotnet-store(Son)\\wwwroot\\img\\cofoomfh.5iwjpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "231003"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UIzLqf19ZvLExy62Iu4yIMGVDTV0JT6/3tol9Ummv7o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 16 May 2025 10:06:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "chcaidfmq0"
+        },
+        {
+          "Name": "label",
+          "Value": "img/cofoomfh.5iwjpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-UIzLqf19ZvLExy62Iu4yIMGVDTV0JT6/3tol9Ummv7o="
         }
       ]
     },

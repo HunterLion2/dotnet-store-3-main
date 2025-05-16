@@ -14,5 +14,5 @@ public class OrderCreateModel
 
     public string Telefon { get; set; } = null!;
 
-    public string SiparisNotu { get; set; } = null!;
+    public string? SiparisNotu { get; set; }
 }
