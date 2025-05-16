@@ -1,6 +1,7 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
 using dotnet_store.Models;
+using dotnet_store.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -18,14 +19,16 @@ public class AccountController : Controller
     private SignInManager<AppUser> _signInManager; // Uygulamaya giriş işlemlerini bu parametre ile yaparız.
     private IEmailService _emailService;
     private readonly DataContext _context;
+    private readonly ICartService _cartService;
 
     // ------------- Constructor ----------------
-    public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IEmailService emailService, DataContext context)
+    public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IEmailService emailService, DataContext context, ICartService cartService)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _emailService = emailService;
         _context = context;
+        _cartService = cartService;
     }
 
     public ActionResult Create()
@@ -87,7 +90,7 @@ public class AccountController : Controller
                 if (result.Succeeded)
                 {
 
-                    await TransferCartToUser(user);
+                    await _cartService.TransferCartToUser(user.UserName!);
 
                     if (!string.IsNullOrEmpty(returnUrl))
                     {

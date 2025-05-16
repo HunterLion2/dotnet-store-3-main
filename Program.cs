@@ -1,4 +1,5 @@
 using dotnet_store.Models;
+using dotnet_store.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddTransient<IEmailService, SmtpEmailService>(); // Burada demek istediğimiz şey IEmailService interface'i çağırdığımız zaman bana SmtpEmailService servisini çağır yani onu kullanıcam anlamına gelir.
+builder.Services.AddTransient<ICartService, CartService>(); // Bunu yazmassak Service'e erişemeyiz.
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<DataContext>(options =>
