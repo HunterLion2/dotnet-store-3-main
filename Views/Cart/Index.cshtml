@@ -93,8 +93,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-grid">
-                                <a href="#" class="btn btn-primary btn-lg">
+                            <div class="d-flex justify-content-between">
+                                <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary btn-lg">
+                                    Alışverişe Devam
+                                </a>
+                                <a asp-controller="Order" asp-action="Checkout" class="btn btn-danger btn-lg">
                                     Siparişi Tamamla
                                 </a>
                             </div>
