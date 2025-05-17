@@ -22,7 +22,7 @@ public class Order
 
     public double ToplamFiyat { get; set; }
 
-    public string SiparisNotu { get; set; } = null!;
+    public string? SiparisNotu { get; set; } = null!;
 
     public List<OrderItem> OrderItems { get; set; } = new();
 
