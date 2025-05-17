@@ -3,6 +3,7 @@ using dotnet_store.Models;
 using dotnet_store.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace dotnet_store.Controllers;
 
@@ -16,6 +17,22 @@ public class OrderController : Controller
     {
         _cartService = cartService;
         _context = context;
+    }
+
+    [Authorize(Roles = "Admin")]
+    public ActionResult Index()
+    {
+        return View();
+    }
+
+    [Authorize(Roles = "Admin")]
+    public ActionResult Details(int id)
+    {
+        var order = _context.Orders
+                            .Include(i => i.OrderItems)
+                            .ThenInclude(i => i.Urun)
+                            .FirstOrDefault(i => i.Id == id);
+        return View(order);
     }
 
     public async Task<ActionResult> Checkout()
@@ -69,7 +86,12 @@ public class OrderController : Controller
 
     public ActionResult Completed(string orderId)
     {
-        return View("Completed",orderId);
+        return View("Completed", orderId);
+    }
+
+    public ActionResult OrderList()
+    {
+        return View();
     }
 
 }

@@ -1,0 +1,50 @@
+@{
+    Layout = "_AdminLayout";
+}
+
+
+@model List<Order>
+
+<div class="row">
+    <div class="col">
+        <div class="card shadow">
+            <div class="card-header py-1">
+                <h5 class="card-title">Siparişler</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped mb-0">
+                        <thead class="table-secondary">
+                            <tr>
+                                <th>Sipariş Id</th>
+                                <th>Username</th>
+                                <th>Toplam</th>
+                                <th>Tarih</th>
+                                <th>Durum</th>
+                                <th style="width: 40px;"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var order in Model) {
+                            <tr>
+                                <td>@order.Id</td>
+                                <td>@order.AdSoyad</td>
+                                <td>@order.ToplamFiyat</td>
+                                <td>@order.SiparisTarihi</td>
+                                <td>
+                                    <span class="badge bg-success"></span>
+                                </td>
+                                <td>
+                                    <a asp-controller="Order" asp-action="Details" asp-route-id="@order.Id" class="btn btn-primary btn-sm">
+                                        <i class="fa-solid fa-right-long"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
