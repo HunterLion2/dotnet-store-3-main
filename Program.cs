@@ -13,7 +13,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-    options.UseSqlite(connectionString);
+    options.UseSqlServer(connectionString);
 });
 
 // Burada yazmış olduğumuz  AddIdentity ile İdentity değeri sayesinde IdentityUser ve IdentityRole adlı tabloları kullanabilir hale geliriz.
